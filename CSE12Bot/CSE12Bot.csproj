@@ -9,4 +9,13 @@
     <PackageReference Include="Discord.Net" Version="2.3.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="bot_token.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="README.md">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
