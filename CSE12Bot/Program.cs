@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Globalization;
+using System.IO;
 using System.Threading.Tasks;
 using System.Timers;
 
 using Discord;
 using Discord.WebSocket;
 
-namespace IsLabZeroOutYet
+namespace CSE12Bot
 {
 	class Program
 	{
-		private const string botToken = "";
+		private readonly string botToken = File.ReadAllText( "bot_token.txt" );
+		private DiscordSocketClient discordClient;
 		private const ulong serverId = 0;
 		private const ulong channelId = 0;
-		private DiscordSocketClient discordClient;
 
 		private static void Main( )
 		{
@@ -29,14 +30,14 @@ namespace IsLabZeroOutYet
 			await discordClient.StartAsync( );
 
 			Timer mainTimer = new( 1.8e+6 ); // 30 minutes.
-			mainTimer.Elapsed += MainTimer_Elapsed;
+			mainTimer.Elapsed += MainTimerElapsed;
 			mainTimer.AutoReset = true;
 			mainTimer.Enabled = true;
 
 			await Task.Delay( -1 );
 		}
 
-		private void MainTimer_Elapsed( object sender, ElapsedEventArgs e )
+		private void MainTimerElapsed( object sender, ElapsedEventArgs e )
 		{
 			discordClient.GetGuild( serverId ).GetTextChannel( channelId ).SendMessageAsync( "Lab 0 is out now as of " + DateTime.Now.ToString( new CultureInfo( "en-US" ) ) + "." );
 		}
