@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.IO;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using Discord;
@@ -8,7 +9,7 @@ namespace PiazzaBot
 {
 	public class PiazzaModule
 	{
-		private const string piazzaUrl = "https://piazza.com/class/kmwk4jtmkrj56j";
+		private readonly string piazzaUrl = File.ReadAllText( "piazza_url.txt" );
 		private readonly Regex piazzaPostRegex = new( @"(^|\s)p([0-9]+)", RegexOptions.IgnoreCase );
 		public PiazzaModule( DiscordSocketClient discordClient )
 		{

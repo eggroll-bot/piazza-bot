@@ -364,3 +364,6 @@ FodyWeavers.xsd
 
 # Bot Token
 bot_token.txt
+
+# Piazza URL
+piazza_url.txt
