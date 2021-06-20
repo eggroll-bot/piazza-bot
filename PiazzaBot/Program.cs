@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Discord;
 using Discord.WebSocket;
 
-namespace CSE12Bot
+namespace PiazzaBot
 {
 	class Program
 	{
